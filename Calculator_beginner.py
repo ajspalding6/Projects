@@ -1,4 +1,5 @@
 import time
+
 def add(num1, num2):
     return num1 + num2
 
@@ -11,62 +12,46 @@ def multiply(num1, num2):
 def divide(num1, num2):
     return num1 / num2
 
-def operationInput():
+def operation_input():
+    invalid_selection = True
 
-    invalidSelection = True
-
-    while invalidSelection:
-
-        action = input("Please select which arithmatic operation to execute: \na) Add \nb) Subtract\nc) Multiply\nd) Divide\n> ")
+    while invalid_selection:
+        action = input("Please select which arithmetic operation to execute: \n"
+                       "a) Add \n"
+                       "b) Subtract\n"
+                       "c) Multiply\n"
+                       "d) Divide\n"
+                       "> ")
         action_lower = action.lower()
-
-        invalidSelection = False
 
         if action_lower == 'a':
             print(f"Result: {add(num1, num2)}")
+            invalid_selection = False
         elif action_lower == 'b':
             print(f"Result: {subtract(num1, num2)}")
+            invalid_selection = False
         elif action_lower == 'c':
             print(f"Result: {multiply(num1, num2)}")
+            invalid_selection = False
         elif action_lower == 'd':
             print(f"Result: {divide(num1, num2)}")
+            invalid_selection = False
         else:
-            invalidSelection = True
+            print("Invalid selection")
 
-    return invalidSelection, action_lower
+    return invalid_selection, action_lower
 
-validNum = False
+valid_num = False
 
-while not validNum:
+while not valid_num:
     num1 = input("Please enter a number: ")
-    num2 = input("Please enter a second numner: ")
+    num2 = input("Please enter a second number: ")
     try:
-        num1 = float(num1) 
+        num1 = float(num1)
         num2 = float(num2)
-        validNum = True
+        valid_num = True
     except ValueError:
         print("Please enter valid numbers")
         time.sleep(2)
 
-action = input("Please select which arithmatic operation to execute: \na) Add \nb) Subtract\nc) Multiply\nd) Divide\n> ")
-action_lower = action.lower()
-
-
-if action_lower == 'a':
-    print(f"Result: {add(num1, num2)}")
-elif action_lower == 'b':
-    print(f"Result: {subtract(num1, num2)}")
-elif action_lower == 'c':
-    print(f"Result: {multiply(num1, num2)}")
-elif action_lower == 'd':
-    print(f"Result: {divide(num1, num2)}")
-else:
-    print("Invalid selection")
-    time.sleep(2)
-    operationInput()
-
-
-
-
-
-    
+operation_input()
