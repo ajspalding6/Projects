@@ -1,3 +1,5 @@
+"""Mock password manager program to understand pandas, data scraping, classes, and CRUD applications"""
+
 # Import necessary libraries
 import os
 import pandas as pd
